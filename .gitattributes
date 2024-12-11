@@ -1,2 +1,6 @@
 # Auto detect text files and perform LF normalization
-* text=auto
+*.sql linguist-language=SQL
+*.csv linguist-language=CSV
+*.Rmd linguist-language=R
+*.md linguist-detectable=true
+*.html linguist-vendored

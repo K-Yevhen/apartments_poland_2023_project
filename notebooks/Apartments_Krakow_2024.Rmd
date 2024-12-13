@@ -1,0 +1,103 @@
+---
+title: "Apartment Analysis in Krakow"
+author: "Yevhen Kuts"
+date: "`r Sys.Date()`"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, warning = FALSE, message = FALSE)
+```
+
+### Setting up my environment
+
+Notes: setting up my R environment by loading the 'tidyverse', 'apartments_krakow_6month_final' and 'scales' packages
+
+```{r ggplot visulisation for apartment krakow dataset}
+library(ggplot2)
+library(tidyverse)
+library(scales)
+```
+
+```{r loading data}
+krk_apartments <- read.csv("apartments_krakow_6month_final.csv")
+# Display the first few rows to show a small understanding of the data
+head(krk_apartments)
+```
+
+### Visualisations
+
+Here we will go through a serious of visualisations
+
+#### 1 Distribution of Apartment Prices in Krakow 2024
+
+```{r}
+ggplot(data=krk_apartments, aes(x = price)) +
+  geom_histogram(binwidth = 10000, fill = "red", color = "white") +
+  scale_x_continuous(
+    breaks = seq(0, 2800000, by = 200000), # controling over tick positions
+    labels = c("0", "200k", "400k", "600k", "800k",
+               "1M", "1.2M", "1.4M", "1.6M", "1.8M",
+               "2M", "2.2M", "2.4M", "2.6M", "2.8M") # controling labels
+  ) +
+  labs(
+    title = "Distribution of Apartment Prices in Krakow",
+    x = "Price (PLN)",
+    y = "Number of Apartments"
+  ) +   theme_minimal(base_size = 14) +
+  theme(
+    plot.title = element_text(hjust = 0.5, face = "bold"),
+    plot.subtitle = element_text(hjust = 0.5, face = "italic"),
+    axis.text.x = element_text(angle = 45, hjust = 1)
+  )
+```
+
+#### 2 Apartments by Number of Rooms in Krakow
+
+```{r}
+ggplot(data=krk_apartments, aes(x = factor(rooms))) +
+  geom_bar(fill = "purple", color = "black", width = 0.7) +
+    geom_text(
+    stat = "count", 
+    aes(label = ..count..), 
+    vjust = -0.5, # Position text above the bar
+    color = "black",
+    size = 2
+  ) +
+  labs(
+    title = "Apartments by Number of Rooms in Krakow",
+    x = "Number of Rooms",
+    y = "Number of Apartments"
+  ) +
+  theme_minimal()
+```
+
+#### 3 Two-Variable Relationships 
+
+``` {r}
+ggplot(data = krk_apartments, aes(x = squareMeters, y = price)) +
+  geom_point(alpha = 0.6, color = "darkblue") +
+  geom_smooth(formula = y ~ x, method = "lm", color = "red", se = FALSE) +
+  scale_y_continuous(
+    breaks = seq(0, 3000000, by = 500000),
+    labels = c("0", "500k", "1M", "1.5M", "2M",
+               "2.5M", "3M")
+  ) +
+  labs(title = "Relationship Between Price and Apartment Size", x = "Square Meters", y = "Price (PLN)") +
+  theme_minimal()
+```
+
+#### 4 Average Apartment Price by Number of Rooms
+
+```{r}
+ggplot(data=krk_apartments, aes(x = factor(rooms), y = price)) +
+  stat_summary(fun = "mean", geom = "bar", fill = "gold", color = "blue") +
+  labs(title = "Average Apartment Price by Number of Rooms", x = "Number of Rooms", y = "Average Price (PLN)") +
+  theme_minimal()
+```
+
+### Conclusion
+
+This analysis provides insights into apartment pricing trends, the influence of size and rooms on price, two-variable relationship and quick summary. Future work may include:
+
+Analyzing data for other cities. Including temporal data to observe seasonal trends. Exploring additional features like balcony, own garden and differences by years.

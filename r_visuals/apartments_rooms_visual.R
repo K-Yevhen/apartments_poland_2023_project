@@ -13,6 +13,13 @@ krk_apartments <- read.csv('apartments_krakow_6month_final.csv')
 
 ggplot(data=krk_apartments, aes(x = factor(rooms))) +
   geom_bar(fill = "purple", color = "black", width = 0.7) +
+  geom_text(
+    stat = "count",
+    aes(label = ..count..),
+    vjust = -0.5,
+    color = "black",
+    size = 2
+  ) +
   labs(
     title = "Apartments by Number of Rooms in Krakow",
     x = "Number of Rooms",

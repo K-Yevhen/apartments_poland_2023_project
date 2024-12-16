@@ -29,4 +29,19 @@ st.markdown(f'### Showing apartments with prices above **{min_price:,} PLN**')
 st.markdown("---")
 
 # Displaying filtered data
-st.dataframe(filtered_apartments_display)
+st.dataframe(filtered_apartments_display.sort_values(by='price', ascending=True))
+
+# Adding short summary statistics
+st.markdown("### **Summary Statistics**")
+st.markdown(
+    f"""
+    - **Total Apartments:** {len(filtered_apartments)}
+    - **Average Price:** {filtered_apartments['price'].mean():,.2f} PLN
+    - **Average Price Per Square Meter:** {filtered_apartments['price_per_square_meter'].mean():,.2f} PLN
+    - **Average Size:** {filtered_apartments['squareMeters'].mean():,.2f} m²
+    - **Average Rooms in Apartment :** {int(filtered_apartments['rooms'].mean())} 
+    - **Oldest Build Year:** {int(filtered_apartments['buildYear'].min())} Year
+    - **Newest Build Year:** {int(filtered_apartments['buildYear'].max())} Year
+    """
+)
+

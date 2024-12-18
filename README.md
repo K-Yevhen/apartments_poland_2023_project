@@ -33,6 +33,46 @@ ____________________________________________________________
 ![trend_price_over_build_year.png](scripts%2Ftrend_price_over_build_year.png)
 ____________________________________________________________
 
+## Project Layout
+
+The basic layout of a application is as simple as:
+
+apartments_poland_2024_project
+├── data/
+│   ├── processed/
+│   ├── raw/
+│   └── README.md
+├── notebooks/
+│   ├── Apartments_Krakow_2024.html
+│   ├── Apartments_Krakow_2024.Rmd
+│   └── README.md
+├── r_visuals/
+│   ├── apartments_room_visual.png
+│   ├── apartments_room_visual.R
+│   ├── distribution_apartments.R
+│   ├── distribution_apartments.png
+│   ├── README.md
+│   ├── squareMeters_price_relationship.png
+│   ├── summary_statistics.png
+│   └── summary_statistics.png
+├── scripts/
+│   ├── apartments.py
+│   ├── apartments_krakow_6month_final.csv
+│   ├── README.md
+│   └── trend_price_over_build_year.png
+├── sql/
+│   ├── apartments_krakow_6months.sql
+│   ├── duplicates.sql
+│   ├── README.md
+│   └── without_duplicates.sql
+├── tableau/
+│   └──README.md
+├── .gitattributes
+├── LICENSE
+├── README.md
+└── requirements.txt
+└── .gitignore
+
 ### Data Attribution
 
 This project uses data from [Apartment Prices in Poland by Krzysztof Jamroz](https://www.kaggle.com/datasets/krzysztofjamroz/apartment-prices-in-poland)

@@ -1,42 +1,14 @@
 # Apartment Prices in Krakow, Poland 2024
+
 An interactive analysis and dashboard exploring apartment
 price trends across Poland in 2024 using Python, Streamlit, R and SQL.
 
-## Table of Contents
-- [Data](#data)
-- [Notebooks](#notebooks)
-- [R Visualisation](#r_visuals)
-- [scripts](#Python-Streamlit)
-- [sql](#SQL)
-- [tableau](#Tableau)
-- [LICENSE](#License)
-
-Each of link has description file about the key components
-inside the subdirectory of the project
-
-## How to Use
-1. Clone the repository:
-- git clone https://github.com/K-Yevhen/apartments_poland_2024_project.git
-
-2. Install dependencies:
-- pip install -r requirements.txt
-
-3. Run the Streamlit app:
-- streamlit run scripts/apartments.py
-
-## Graphs and Visuals:
-
-![summary_statistics.png](r_visuals%2Fsummary_statistics.png)
-____________________________________________________________
-![squareMeters_price_relationship.png](r_visuals%2FsquareMeters_price_relationship.png)
-____________________________________________________________
-![trend_price_over_build_year.png](scripts%2Ftrend_price_over_build_year.png)
-____________________________________________________________
+------------------------------------------------
 
 ## Project Layout
 
 The basic layout of a application is as simple as:
-
+```
 apartments_poland_2024_project
 ├── data/
 │   ├── processed/
@@ -72,6 +44,34 @@ apartments_poland_2024_project
 ├── README.md
 └── requirements.txt
 └── .gitignore
+```
+
+------------------------------------------------
+
+## How to Use
+
+1. Clone the repository:
+- git clone https://github.com/K-Yevhen/apartments_poland_2024_project.git
+
+2. Install dependencies:
+- pip install -r requirements.txt
+
+3. Run the Streamlit app:
+- streamlit run scripts/apartments.py
+
+------------------------------------------------
+
+## Graphs and Visuals:
+____________________________________________________________
+![squareMeters_price_relationship.png](r_visuals%2FsquareMeters_price_relationship.png)
+____________________________________________________________
+![trend_price_over_build_year.png](scripts%2Ftrend_price_over_build_year.png)
+____________________________________________________________
+![apartments_room_visual.png](r_visuals%2Fapartments_room_visual.png)
+____________________________________________________________
+![distrubution_apartment_prices_krakow.png](r_visuals%2Fdistrubution_apartment_prices_krakow.png)
+____________________________________________________________
+![summary_statistics.png](r_visuals%2Fsummary_statistics.png)
 
 ### Data Attribution
 
